@@ -18,7 +18,7 @@ const Profile = lazy(() => import("../Components/StockApp/Profile.jsx"));
 const Portfolio = lazy(() => import("../Components/StockApp/Portfolio.jsx"));
 const Movers = lazy(() => import("../Components/StockApp/Movers.jsx"));
 const TransactionComponent = lazy(() => import("../Components/StockApp/TransactionComponent.jsx"));
-const Watchlist = lazy(() => import("../Components/StockApp/watchlist.jsx"));
+const Watchlist = lazy(() => import("../Components/StockApp/Watchlist.jsx"));
 const StockInfo = lazy(() => import("../Components/StockApp/StockInfo.jsx"));
 //import Login from "./Login.jsx";
 
