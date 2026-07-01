@@ -16,7 +16,7 @@ import Watchlist from "../../assets/Components/Navbar/Watchlist.svg";
 function Navbar(props){
 
     const navigate = useNavigate();
-    const [ currentNavMenu , changeNavMenu] = useState("portfolio")
+    const [ currentNavMenu , changeNavMenu] = useState("")
     //const { ____ , ____ } = usseContext(Global_Variables);
     function handleNavigate(pos){
         navigate(`/stockApp/${pos}`);
@@ -25,7 +25,9 @@ function Navbar(props){
     }
 
     useEffect(()=>{
+        changeNavMenu("portfolio");
         let navStored = sessionStorage.getItem("Navpos");
+        if (navStored != undefined)
         changeNavMenu(navStored);
 
     })

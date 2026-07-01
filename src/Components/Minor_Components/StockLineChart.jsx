@@ -28,7 +28,7 @@ export default function StockLineChart(props) {
 
             //console.log(list);
 
-            console.log("hp from api", chartData, hd);
+            //console.log("hp from api", chartData, hd);
             if (hd.length > 0)
                 list.push([props.symbol, chartRange, hd]);
             sessionStorage.setItem("StockInfo", JSON.stringify(list));

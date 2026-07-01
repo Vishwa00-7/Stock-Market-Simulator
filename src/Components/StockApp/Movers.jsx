@@ -15,13 +15,32 @@ function Movers(props) {
     const [cardListG, setCardListG] = useState([]);
     const [cardListL, setCardListL] = useState([]);
 
-    const  gainersDisplay = useRef(null);
-    const  losersDisplay = useRef(null);
-    const [ Render , doRender] = useState(false);
+    const gainersDisplay = useRef(null);
+    const losersDisplay = useRef(null);
+    const [Render, doRender] = useState(false);
 
     useEffect(() => {
         let movers = undefined;
         const today = new Date().toDateString();
+
+        function generateCard() {
+
+            let gl = GainersData.current.data.map((element, index) => {
+                return (<SearchCard info={[element[0], element[1]]}
+                    addinfo={[element[2], true, "%"]}
+                    pos={index} />)
+            });
+
+            let ll = LoosersData.current.data.map((element, index) => {
+                return (<SearchCard info={[element[0], element[1]]}
+                    addinfo={[element[2], true, "%"]}
+                    pos={index + 10} />)
+            });
+
+
+            setCardListG(gl);
+            setCardListL(ll);
+        }
 
         async function fetchData() {
             let temp = await executeMovers();
@@ -31,7 +50,7 @@ function Movers(props) {
             for (let i = 0; i < 10; i++) {
                 let symbol = temp.top_gainers[i].ticker;
                 let name = await executeName(symbol);
-                console.log(name);
+                //console.log(name);
                 let changePct = temp.top_gainers[i].change_percentage.slice(0, -1);
                 changePct = parseFloat(changePct).toFixed(2);
                 movers.push([symbol, name, changePct]);
@@ -50,6 +69,8 @@ function Movers(props) {
             }
             LoosersData.current = { "day": today, "data": movers };
             localStorage.setItem("Losers", JSON.stringify({ "day": today, "data": movers }));
+            console.log("from api" , GainersData ,LoosersData);
+            generateCard();
 
         }
 
@@ -63,42 +84,30 @@ function Movers(props) {
             movers = JSON.parse(movers);
             if (movers != undefined && movers.day == today)
                 LoosersData.current = movers;
-           
+            console.log("from storage" , GainersData ,LoosersData);
 
         }
+        console.log(GainersData.current)
 
-        if (GainersData.current == undefined)
+        if (GainersData.current == undefined || GainersData.current.length == 0)
             fetchData();
+        else
+            generateCard();
 
-        //console.log(GainersData.current , LoosersData.current);         //-----------
-
-
-        let gl = GainersData.current.data.map((element, index) => {
-            return (<SearchCard info={[element[0], element[1]]}
-                addinfo={[element[2], true , "%"]}
-                pos={index} />)
-        });
-
-        let ll = LoosersData.current.data.map((element, index) => {
-            return (<SearchCard info={[element[0], element[1]]}
-                addinfo={[element[2], true , "%"]}
-                pos={index + 10} />)
-        });
-
-
-        setCardListG(gl);
-        setCardListL(ll);
+        console.log("all data", GainersData.current, LoosersData.current); 
+                //-----------
+        
 
     }, []);
 
-    function swap(){
+    function swap() {
         //conditional rendering 
         //console.log(gainersDisplay.current.style.display);
-        if (gainersDisplay.current.style.display == "none"){
+        if (gainersDisplay.current.style.display == "none") {
             gainersDisplay.current.style.display = "block";
             losersDisplay.current.style.display = "none";
         }
-        else{
+        else {
             gainersDisplay.current.style.display = "none";
             losersDisplay.current.style.display = "block";
         }
@@ -116,7 +125,7 @@ function Movers(props) {
             </button>
             <br />
             <div className={styles.moverscontent}>
-                
+
                 <div className={styles.topgainers} ref={gainersDisplay}>
                     <h2 className={styles.gheading}>Top Gainers</h2>
                     <div className={styles.gainerscontent}>

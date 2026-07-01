@@ -26,7 +26,7 @@
     margin: 0;
     position: absolute;
     background-color: transparent;
-    color: var(--btn-text);
+    color: var(--text-primary);
     height: 80%;
     width: calc(85vw - 1.6*max(6vh, 40px) - 20px);
     font-size: large;

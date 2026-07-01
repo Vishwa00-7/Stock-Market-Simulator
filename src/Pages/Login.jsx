@@ -55,6 +55,7 @@ function Login() {
                 //console.log(AccountID)
                 setUsername("");
                 setPassword("");
+                sessionStorage.setItem("Navpos" , "portfolio");
                 navigate("/stockApp");
                 break;
             }
