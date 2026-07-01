@@ -2,6 +2,7 @@
 import React, { useEffect } from "react";
 import { useState, useContext, useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
 
 import { Global_Variables } from "../App";
 
@@ -45,10 +46,12 @@ function Login() {
 
     const handleLogin = (e) => {
         e.preventDefault();
+        let fla = true;
         //console.log(AccountInfo);
         for (let i = 0; i < AccountInfo.current.length; i++) {
             if (AccountInfo.current[i].name == username && AccountInfo.current[i].password == password) {
-                console.log("login Successfully");
+                fla = false;
+                toast.success("login Successfully");
                 AccountID.current = AccountInfo.current[i].accountId;
                 if (sessionStorage !== undefined)
                     sessionStorage.setItem("AccountID", AccountID.current);
@@ -59,22 +62,31 @@ function Login() {
                 navigate("/stockApp");
                 break;
             }
-            else
-                console.log("Invalid Password");
+            else if (AccountInfo.current[i].name == username){
+                fla = false
+                toast.error("Invalid Password");
+            }
         }
+        if (fla)
+            toast.error("Account Not Found");
     };
 
     const handleSignin = () => {
         console.log(AccountInfo.current);
         let flag = 1;
+        if (craeteUserName.length <= 3 || createPassword.length <= 3){
+            flag = 0;
+            toast.warn("Invalid Username or Password")
+        }
+            
         for (let i = 0; i < AccountInfo.current.length; i++) {
             if (AccountInfo.current[i].name == craeteUserName) {
-                console.log("Already Present");
+                toast.error("Already Present");
                 flag = 0;
             }
         }
         if (flag == 1) {
-            //console.log("updated");
+            toast.success("created");
             let id = AccountInfo.current.length + 1;
             AccountInfo.current.push({
                 "name": craeteUserName,
@@ -112,10 +124,15 @@ function Login() {
         }
     }
 
+    function googleSignin(){
+        toast.warn("Under Construction");
+    }
+
 
 
     return (
         <div className={styles.Login}>
+            <ToastContainer position="top-right" autoClose={3000} theme="colored"/>
             <h1 className={styles.heading}>Stock Simulator</h1>
             <div className={styles.wrapper}>
                 <div className={styles.backGround} >
@@ -150,7 +167,7 @@ function Login() {
                 <hr />
                 <p>OR</p>
                 <hr />
-                <button className={styles.googleLogin} >
+                <button className={styles.googleLogin} onClick={googleSignin} >
                     <img src={googleImg} className={styles.googleImg} />
                     Continue With Google
                 </button>
