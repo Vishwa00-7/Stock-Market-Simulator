@@ -1,0 +1,56 @@
+
+
+.stocklinechart{
+    width:100%;
+    aspect-ratio: 1/1;
+    height: auto;
+    background-color: transparent;
+}
+
+.linechart{
+    height: 70%;
+}
+
+.splitselector{
+    padding: 6px;
+    width: auto;
+    background-color: rgba(238, 130, 238, 0.221);
+    border: hidden;
+    border-radius: 1000px;
+    margin-top: 10px;
+    justify-self: center;
+   
+}
+
+
+
+.splitbtn{
+    width: auto;
+    background-color: transparent;
+    border: none;
+    border-radius: 999px;
+    padding: 0.35rem 0.8rem;
+    margin: 0;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.splitbtn.active{
+    background-color: rgba(238, 130, 238, 0.637);
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.tooltip{
+    background-color: var(--bg-tertiary);
+    padding: 12px;
+    
+    border: hidden;
+    border-radius: 8px;
+}
+
+.tooltip_p{
+    margin-top: 0;
+    margin-bottom: 0;
+}

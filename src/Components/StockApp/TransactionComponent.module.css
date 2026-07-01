@@ -1,0 +1,48 @@
+
+.totalvalue{
+    background-color: var(--btn-primary-bg);
+    margin: 0.5em 1em 0.5em ;
+    padding: 1em;
+    border: hidden;
+    border-radius: 10px;
+    color: var(--btn-primary-text);
+}
+
+
+.transaction{
+    height: 100vh;
+    margin: 0%;
+    display: flex;
+    flex-direction: column;
+}
+
+.heading{
+    display: inline-block;
+}
+
+.transactioncontent{
+    height: 100%;
+    overflow: auto;
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    
+    padding-right: 0.25rem;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* Hide scrollbar for Firefox */
+    scrollbar-width: none;
+
+    /* Hide scrollbar for IE and legacy Edge */
+    -ms-overflow-style: none; 
+}
+
+@media (orientation: portrait) {
+    .transaction{
+        height: calc(100vh - 100px);
+    }
+}

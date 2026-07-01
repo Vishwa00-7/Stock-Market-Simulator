@@ -1,0 +1,82 @@
+.watchlist{
+    height: 100vh;
+    margin: 0%;
+}
+
+.searchbar {
+    position: sticky;
+    top: 0%;
+    width: 90%;
+    height: max(6vh, 45px);
+    z-index: 1;
+    margin: auto;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+
+    color: inherit;
+    border: none;
+    background-color: var(--bg-secondary);
+    border-radius: 1000px;
+}
+
+
+
+.searchbox {
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    background-color: transparent;
+    color: var(--btn-text);
+    height: 80%;
+    width: calc(85vw - 1.6*max(6vh, 40px) - 20px);
+    font-size: large;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: hidden;
+}
+
+.searchbox:focus {
+    outline: none;
+}
+
+.searchbtn {
+    aspect-ratio: 1/1;
+    height: 80%;
+    width: auto;
+    border: hidden;
+    border-radius: 100%;
+    position: absolute;
+    margin: 0%;
+    padding: 0%;
+    font-size: larger;
+    align-items: center;
+
+    top: 50%;
+    right: 0%;
+    aspect-ratio: 1 /1;
+    transform: translate(-10%, -50%);
+    background-color: transparent;
+}
+
+.searchcontent{
+    height: calc(100vh - max(6vh, 45px));
+    overflow: auto;
+    margin-bottom: 80px;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* Hide scrollbar for Firefox */
+    scrollbar-width: none;
+
+    /* Hide scrollbar for IE and legacy Edge */
+    -ms-overflow-style: none; 
+}
+
+@media (orientation: portrait) {
+    .watchlist{
+        height: calc(100vh - 100px);
+    }
+}

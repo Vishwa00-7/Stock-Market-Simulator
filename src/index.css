@@ -1,0 +1,311 @@
+/* =========================
+   LIGHT MODE (DEFAULT)
+   ========================= */
+
+:root {
+
+  /* Backgrounds */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f5f7fa;
+  --bg-tertiary: #e9ecef;
+  --bg-card: #ffffff;
+  --bg-hover: #f1f3f5;
+
+  /* Text */
+  --text-primary: #212529;
+  --text-secondary: #495057;
+  --text-muted: #6c757d;
+  --text-inverse: #ffffff;
+
+  /* Headings */
+  --heading-primary: #111827;
+  --heading-secondary: #1f2937;
+  --heading-tertiary: #374151;
+
+  /* Borders */
+  --border-light: #e5e7eb;
+  --border-medium: #d1d5db;
+  --border-dark: #9ca3af;
+
+  /* Brand / Accent */
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --primary-active: #1e40af;
+
+  --secondary: #64748b;
+  --secondary-hover: #475569;
+
+  /* Status Colors */
+  --success: #16a34a;
+  --warning: #f59e0b;
+  --danger: #dc2626;
+  --info: #0ea5e9;
+
+  /* Links */
+  --link: #2563eb;
+  --link-hover: #1d4ed8;
+  --link-visited: #7c3aed;
+
+  /* Buttons */
+  --btn-primary-bg: #2563eb;
+  --btn-primary-text: #ffffff;
+
+  --btn-secondary-bg: #e5e7eb;
+  --btn-secondary-text: #111827;
+
+  /* Forms */
+  --input-bg: #ffffff;
+  --input-border: #d1d5db;
+  --input-focus: #2563eb;
+  --input-text: #111827;
+  --placeholder: #9ca3af;
+
+  /* Shadows */
+  --shadow-sm: rgba(0, 0, 0, 0.05);
+  --shadow-md: rgba(0, 0, 0, 0.1);
+  --shadow-lg: rgba(0, 0, 0, 0.15);
+
+  /* Scrollbar */
+  --scrollbar-track: #f1f1f1;
+  --scrollbar-thumb: #b0b0b0;
+  --scrollbar-thumb-hover: #888888;
+
+
+  --profit: #188038;
+
+  --loss: #d93025;
+}
+
+[data-theme="dark"] {
+
+  /* =========================
+     BACKGROUNDS
+     ========================= */
+
+  --bg-primary: #18181b;
+  /* page background */
+  --bg-secondary: #202024;
+  /* sections */
+  --bg-tertiary: #27272a;
+  /* hover surfaces */
+  --bg-card: #1f1f23;
+  --bg-modal: #1f1f23;
+
+  /* =========================
+     INPUTS
+     ========================= */
+
+  --input-bg: #242428;
+  --input-bg-hover: #2a2a2f;
+  --input-border: #323238;
+  --input-focus: #52525b;
+
+  /* =========================
+     TEXT
+     ========================= */
+
+  --text-primary: #f4f4f5;
+  --text-secondary: #b4b4bc;
+  --text-muted: #71717a;
+  --text-disabled: #52525b;
+  --text-inverse: #18181b;
+
+  /* =========================
+     HEADINGS
+     ========================= */
+
+  --heading-primary: #fafafa;
+  --heading-secondary: #e4e4e7;
+  --heading-tertiary: #c7c7d0;
+
+  /* =========================
+     BORDERS
+     ========================= */
+
+  --border-light: #2f2f35;
+  --border-medium: #3f3f46;
+  --border-strong: #52525b;
+
+  /* =========================
+     PRIMARY BUTTON
+     ========================= */
+
+  --btn-primary-bg: #f4f4f5;
+  --btn-primary-hover: #ffffff;
+  --btn-primary-active: #e4e4e7;
+  --btn-primary-text: #18181b;
+
+  /* =========================
+     SECONDARY BUTTON
+     ========================= */
+
+  --btn-secondary-bg: transparent;
+  --btn-secondary-hover: #26262b;
+  --btn-secondary-text: #f4f4f5;
+  --btn-secondary-border: #3f3f46;
+
+  /* =========================
+     LINKS
+     ========================= */
+
+  --link: #d4d4d8;
+  --link-hover: #ffffff;
+  --link-muted: #71717a;
+
+  /* =========================
+     SOCIAL BUTTONS
+     ========================= */
+
+  --social-bg: transparent;
+  --social-border: #323238;
+  --social-hover: #26262b;
+  --social-text: #f4f4f5;
+
+  /* =========================
+     DIVIDERS
+     ========================= */
+
+  --divider: #323238;
+
+  /* =========================
+     STATUS COLORS
+     ========================= */
+
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --info: #3b82f6;
+
+  /* =========================
+     SHADOWS
+     ========================= */
+
+  --shadow-sm: rgba(0, 0, 0, 0.20);
+  --shadow-md: rgba(0, 0, 0, 0.35);
+  --shadow-lg: rgba(0, 0, 0, 0.50);
+
+  /* =========================
+     SCROLLBAR
+     ========================= */
+
+  --scrollbar-track: #1f1f23;
+  --scrollbar-thumb: #3f3f46;
+  --scrollbar-thumb-hover: #52525b;
+
+
+  --profit: #81c995;
+  --loss: #f28b82;
+}
+
+
+body {
+  background-color: var(--bg-primary);
+  margin: 0%;
+  width: 100dvw;
+  height: 100dvh;
+  overflow: hidden;
+  font-family: Roboto, system-ui, -apple-system, sans-serif;
+}
+
+#root {
+  margin: 0%;
+  width: 100dvw;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+div {
+  background-color: transparent;
+}
+
+h1,
+h2 {
+  color: var(--heading-primary);
+  margin-left: 10px;
+}
+
+h3,
+h4 {
+  color: var(--heading-secondary);
+}
+
+h5,
+h6 {
+  color: var(--heading-tertiary);
+}
+
+p,
+li,
+span {
+  color: var(--text-primary);
+}
+
+a {
+  color: var(--link);
+}
+
+input {
+  background-color: var(--input-bg);
+  border-color: var(--border-light);
+  color: white;
+  padding: 0.80em;
+  width: 80%;
+  margin-bottom: 2%;
+  border-color: var(--border-strong);
+  border-radius: 5px;
+}
+
+input:focus {
+  outline: 2px solid whitesmoke;
+}
+
+
+button {
+  background-color: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+  font-size: x-large;
+  border: hidden;
+  border-radius: 5px;
+}
+
+svg {
+  fill: var(--text-primary);
+}
+
+/*hide scroll bar*/
+html,
+body {
+  /* Hide scrollbar for Firefox */
+  scrollbar-width: none;
+
+  /* Hide scrollbar for IE and Edge */
+  -ms-overflow-style: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Target the built-in toastify container */
+/* Restores the Toastify close button back to its intended layout */
+.Toastify__close-button {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  width: auto !important;
+  height: auto !important;
+  min-height: unset !important;
+  align-self: center !important;
+  /* Centers it perfectly with the text */
+}
+
+/* Forces the SVG inner icon to render squarely */
+.Toastify__close-button>svg {
+  width: 14px !important;
+  height: 14px !important;
+  display: block !important;
+}
