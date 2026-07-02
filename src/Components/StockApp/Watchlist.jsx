@@ -85,7 +85,9 @@ function Watchlist(props){
             {(searchValue != "") && <div className={styles.searchcontent}>
                 {searchCardList}
                 <br/>
+                <br/>
             </div>}
+            <br/>
         </div>
     );
 }

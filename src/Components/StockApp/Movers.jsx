@@ -158,6 +158,8 @@ function Movers(props) {
                     <h2 className={styles.gheading}>Top Gainers</h2>
                     <div className={styles.gainerscontent}>
                         {cardListG}
+                        <br/>
+                        <br/>
                     </div>
                 </div>
 
@@ -165,11 +167,12 @@ function Movers(props) {
                     <h2 className={styles.lheading}>Top Losers</h2>
                     <div className={styles.loserscontent}>
                         {cardListL}
+                        <br/>
+                        <br/>
                     </div>
                 </div>
             </div>
             <br />
-
             <br />
         </div>
     );
