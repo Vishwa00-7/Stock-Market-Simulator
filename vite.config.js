@@ -23,7 +23,7 @@ export default defineConfig({
         description: 'Simple Stock Market simulator',
         theme_color: '#000000',
         background_color: '#000000',
-        display: 'standalone',
+        display: 'fullscreen',
         id : "/",
         start_url: '/',
         icons: [
