@@ -252,6 +252,8 @@ function StockInfo(props) {
                 </div>
                 </div>
             </div>
+            <br/>
+            <br/>
         </div>
     );
 }
