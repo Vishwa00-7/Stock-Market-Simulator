@@ -10,7 +10,7 @@
     margin-top: 0%;
     color: var(--text-primary);
     position: absolute;
-    font-size: 500%;
+    font-size: clamp(60px , 400% , 80px);
 }
 
 .wrapper{
@@ -118,8 +118,12 @@ button{
 
 @media (orientation: portrait) {
     .inputform{
-        width: 80%;
+        width: 85%;
         left: 50%;
         transform: translate(-50% , -40%);;
+    }
+
+    .googleLogin{
+        padding-right: 0%;
     }
 }

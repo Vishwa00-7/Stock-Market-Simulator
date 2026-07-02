@@ -218,8 +218,14 @@ div {
   background-color: transparent;
 }
 
-h1,
+h1{
+  color: var(--heading-primary);
+  margin-left: 10px;
+  font-size: clamp(1.5rem, 1vw + 1.5rem, 2rem);
+}
+
 h2 {
+  font-size: clamp(1rem, 1vw + 1rem, 1.5rem);
   color: var(--heading-primary);
   margin-left: 10px;
 }

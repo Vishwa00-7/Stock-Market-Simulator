@@ -4,6 +4,7 @@ import { useState, useContext, useRef, useEffect } from "react";
 import { Global_Variables } from "../../App.jsx";
 import styles from "./Profile.module.css";
 import { useTheme } from '../../ThemeContext.jsx';
+import Portfolio from "./Portfolio.jsx";
 
 function Profile(props) {
 
@@ -13,6 +14,7 @@ function Profile(props) {
     const accountData = useRef(undefined);                      //Account Data of user
     const [userName, setUser] = useState("");
     const [currentBalance, setBalance] = useState(20000);
+    const [portfolioValue , setPortfolioValue] = useState(0);
     const { theme, setTheme} = useTheme();
 
     const navigate = useNavigate();
@@ -29,12 +31,17 @@ function Profile(props) {
         }
         setUser(accountData.current.name);
         setBalance(accountData.current.amount)
+        let sum =0;
+        for (let i=0; i< accountData.current.portfolio.length ; i++){
+            sum += accountData.current.portfolio[i][3];
+        }
+        setPortfolioValue(sum);
     }, []);
 
     function setColor() {
         if (theme == "light" )
             return "white"
-        if (currentBalance >= 20000)
+        if (currentBalance > 0)
             return "green";
         else
             return "red";
@@ -64,7 +71,7 @@ function Profile(props) {
                     Earned :
                 </h2>
                 <h2 className={styles.detail + " " + styles.inline} style={{ color: setColor(), marginLeft: "10px" }}>
-                    {" " + (currentBalance - 20000).toFixed(2)}
+                    {" " + (currentBalance + portfolioValue - 20000).toFixed(2)}
                 </h2>
             </div>
             <br />

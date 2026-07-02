@@ -4,7 +4,7 @@
     height: 100dvh;
     overflow: hidden;
     display: grid;
-    grid-template-rows: auto clamp(80px , 10vh ,100px);
+    grid-template-rows: auto clamp(60px , 8vh ,100px);
     grid-template-columns: 1fr;
     
 }

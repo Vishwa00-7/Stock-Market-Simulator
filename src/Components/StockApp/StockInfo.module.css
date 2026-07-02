@@ -1,6 +1,6 @@
 
 .stockinfo{
-    height: calc(100vh - 90px);
+    height: calc(100vh - 70px);
     overflow-y: auto;
 }
 
@@ -16,6 +16,7 @@
     background-color: transparent;
     color : var(--text-primary);
     float: left;
+    padding: 0%;
 }
 
 .symbol{
@@ -94,8 +95,13 @@
 
 
 .wacthlistbtn{
+    box-sizing: border-box;
+    margin: 0%;
     aspect-ratio: 1 /1;
+    width: 50px;
+    height: 50px;
     background-color: var(--bg-secondary);
+    padding: 0.3rem;
 }
 
 .fillsvg{
@@ -104,15 +110,17 @@
 
 .shopbtn{
     float: right;
+    margin-left: 10px;
 }
 
 .buybtn{
-    padding: 0.5em 0.8em 0.5em;
+   
+    padding: 0.3em 0.6em 0.3em;
     background-color: rgb(0, 230, 0);
 }
 
 .sellbtn{
-    padding: 0.5em 0.8em 0.5em;
+    padding: 0.3em 0.6em 0.3em;
     background-color: red;
 }
 

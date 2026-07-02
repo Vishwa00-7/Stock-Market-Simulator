@@ -40,7 +40,7 @@
 }
 
 .dropdown{
-    margin-left: 50px;
+    margin-left: clamp(2px , 4vw , 20px);
     padding: 0.5em;
     background-color: var(--bg-secondary);
     color: var(--text-secondary);
@@ -72,7 +72,7 @@
         height: calc(100vh - 100px);
     }
     .dropdown{
-        margin-right: 10px;
+        margin-right: 5px;
         float: right;
     }
 }

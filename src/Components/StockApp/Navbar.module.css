@@ -11,8 +11,8 @@
 
 .Navbar button{
     aspect-ratio: 1/1;
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     background-color: transparent;
     margin: 0%;
     
@@ -20,8 +20,8 @@
 
 .Navbar img{
     aspect-ratio: 1/1;
-    width: 40px;
-    height: 40px;
+    width: 32px;
+    height: 32px;
 }
 
 .selected{
@@ -37,12 +37,24 @@
         grid-area: 1 / 1 / 1 / 1;
         gap: 10px;
         height: 100dvh;
+        
     }    
 }
 
 @media (orientation: portrait) {
     .Navbar{
         width: 100dvw;
-        justify-content: space-between;
+        justify-content: space-evenly;
+    }
+
+    .Navbar img{
+        width: 28px;
+        height: 28px;
+    }
+
+    .Navbar button{
+        width: 40px;
+        height: 40px;
+        padding: 0%;
     }
 }

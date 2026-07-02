@@ -1,11 +1,11 @@
 .movers {
-    height: calc(100vh - 100px);
+    height: calc(100vh - 70px);
     margin: 0%;
 }
 
 .moverscontent {
     width: 100%;
-    height: calc(100vh - 200px);
+    height: calc(100vh - 180px);
     overflow: auto;
     margin-bottom: 150px;
 }

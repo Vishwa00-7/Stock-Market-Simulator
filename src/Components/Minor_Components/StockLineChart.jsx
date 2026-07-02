@@ -96,7 +96,7 @@ export default function StockLineChart(props) {
         <div className={styles.stocklinechart}>
             <div className={styles.linechart}>
                 <ResponsiveContainer width="100%" height="100%">
-                    <LineChart data={chartData} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
+                    <LineChart data={chartData} margin={{ top: 20, right: 20, left: 0, bottom: 5 }}>
                         <CartesianGrid strokeDasharray="3 3" opacity={0.5} />
                         <XAxis
                             dataKey="date"
