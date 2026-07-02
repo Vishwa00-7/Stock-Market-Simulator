@@ -1,5 +1,5 @@
 .watchlist{
-    height: 100vh;
+    height: 100%;
     margin: 0%;
 }
 
@@ -60,9 +60,9 @@
 }
 
 .searchcontent{
-    height: calc(100vh - max(6vh, 45px));
+    height: calc(100% - max(6vh, 45px));
     overflow: auto;
-    margin-bottom: 80px;
+    
 
     &::-webkit-scrollbar {
         display: none;
@@ -75,8 +75,9 @@
     -ms-overflow-style: none; 
 }
 
+/*
 @media (orientation: portrait) {
     .watchlist{
         height: calc(100vh - 100px);
     }
-}
+}*/
