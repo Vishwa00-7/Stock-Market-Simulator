@@ -20,7 +20,7 @@ function Profile(props) {
     const navigate = useNavigate();
 
     useEffect(() => {
-        console.log(AccountID)
+        //console.log(AccountID)
         if (AccountID.current === null || AccountID.current === undefined || AccountID.current === "") {
             if (sessionStorage !== undefined)
                 AccountID.current = sessionStorage.getItem("AccountID");
@@ -33,15 +33,18 @@ function Profile(props) {
         setBalance(accountData.current.amount)
         let sum =0;
         for (let i=0; i< accountData.current.portfolio.length ; i++){
-            sum += accountData.current.portfolio[i][3];
+            sum += (accountData.current.portfolio[i][3] - 0);
+            //console.log(sum);
         }
+        //console.log(sum);
         setPortfolioValue(sum);
     }, []);
 
     function setColor() {
+        
         if (theme == "light" )
             return "white"
-        if (currentBalance > 0)
+        if ((currentBalance - 20000 + portfolioValue) >= 0)
             return "green";
         else
             return "red";
@@ -71,7 +74,7 @@ function Profile(props) {
                     Earned :
                 </h2>
                 <h2 className={styles.detail + " " + styles.inline} style={{ color: setColor(), marginLeft: "10px" }}>
-                    {" " + (currentBalance + portfolioValue - 20000).toFixed(2)}
+                    {" " + (currentBalance - 20000 + portfolioValue).toFixed(2)}
                 </h2>
             </div>
             <br />

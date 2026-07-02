@@ -4,7 +4,7 @@
     height: 100dvh;
     overflow: hidden;
     display: grid;
-    grid-template-rows: auto clamp(60px , 8vh ,100px);
+    grid-template-rows: calc(100dvh - clamp(60px , 8dvh ,100px)) clamp(60px , 8dvh ,100px);
     grid-template-columns: 1fr;
     
 }
@@ -18,7 +18,7 @@
 
 @media (orientation: landscape) {
     .StockApp{
-        grid-template-columns: clamp(60px , 10vw ,70px) auto;
+        grid-template-columns: clamp(60px , 10dvw ,70px) calc(100dvw - clamp(60px , 10dvw ,70px));
         grid-template-rows: 1fr;
     }
 

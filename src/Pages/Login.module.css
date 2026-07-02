@@ -126,4 +126,9 @@ button{
     .googleLogin{
         padding-right: 0%;
     }
+    .heading{
+        top :0%;
+        font-size: clamp(50px , 8vh , 80px);
+
+    }
 }

@@ -1,5 +1,5 @@
 .searchcard {
-    width: 80%;
+    width: 90%;
     height: clamp(60px, 8vmax, 70px);
     background-color: var(--bg-tertiary);
 

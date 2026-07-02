@@ -22,9 +22,9 @@ function Portfolio(props) {
         if (Storage !== undefined) {
             accountData.current = localStorage.getItem(AccountID.current);
             accountData.current = JSON.parse(accountData.current);
-            console.log(accountData.current);
+            //console.log(accountData.current);
             portfolioInfo.current = accountData.current.portfolio;
-            console.log(portfolioInfo)
+            //console.log(portfolioInfo)
             for (let i=0 ; i < portfolioInfo.current.length ; i++){
                 totalInvestment.current += portfolioInfo.current[i][3];
             }
