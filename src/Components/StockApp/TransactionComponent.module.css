@@ -10,7 +10,7 @@
 
 
 .transaction{
-    height: 100vh;
+    height: 100%;
     margin: 0%;
     display: flex;
     flex-direction: column;
@@ -41,8 +41,11 @@
     -ms-overflow-style: none; 
 }
 
+
+/*
 @media (orientation: portrait) {
     .transaction{
         height: calc(100vh - 60px);
     }
 }
+    */

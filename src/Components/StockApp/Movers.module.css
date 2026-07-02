@@ -1,5 +1,5 @@
 .movers {
-    height: calc(100vh - 70px);
+    height: 100%;
     margin: 0%;
 }
 
@@ -36,10 +36,11 @@
 
 
 @media (orientation: landscape) {
-    .movers {
+    /*.movers {
         height: 100vh;
         margin: 0%;
     }
+    */
 
     .toplosers {
         display: block;
