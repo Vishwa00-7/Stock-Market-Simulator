@@ -83,10 +83,12 @@ function StockInfo(props) {
             //console.log(accountData.current);
             let portfolio = accountData.current.portfolio;
             //console.log(portfolio);
+            let tmpqty = 0;
             for (let i=0 ; i < portfolio.length ; i++){
                 if (portfolio[i][1] == symbol)
-                    SetStockQty(StockQty + 1);
+                    tmpqty += 1;
             }
+            SetStockQty(tmpqty);
         }
     }, []);
 

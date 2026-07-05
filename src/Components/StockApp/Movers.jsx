@@ -114,7 +114,7 @@ function Movers(props) {
         }
         //console.log(GainersData.current)
 
-        if (GainersData.current == undefined || GainersData.current.length == 0)
+        if (LoosersData.current == undefined || LoosersData.current.length == 0)
             fetchData();
         else
             generateCard();
