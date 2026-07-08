@@ -82,48 +82,41 @@ export async function clearRefreshToken() {
 
 export async function validateToken(token) {
     try {
+        const storedToken = token?.trim() || sessionStorage.getItem("AccountID") || "";
         let result = null;
         const flag = await fetch(url + "/checktoken", {
             method: "GET",
             credentials: "include",
             headers: {
                 'Content-Type': 'application/json',
-                "authorization": "Bearer " + token
+                ...(storedToken ? { authorization: "Bearer " + storedToken } : {})
             }
         });
-        console.log(flag);
 
         if (!flag.ok) {
             const resultPromise = await fetch(url + "/generatetoken", {
                 method: "GET",
                 credentials: "include",
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    ...(storedToken ? { authorization: "Bearer " + storedToken } : {})
                 }
             });
-            console.log(resultPromise)
             if (resultPromise.ok) {
                 result = await resultPromise.text();
-                sessionStorage.setItem("AccountID" , result);
-                console.log("refresh" ,  result);
+                if (result) {
+                    sessionStorage.setItem("AccountID", result);
+                }
                 return result;
             }
-            else{
-                //let text = await resultPromise.text();
-                //toast.error(text)
-                return null;
-            }
+            return null;
         }
-        else
-            //console.log("no change" , token);
-            return token;
+
+        return storedToken || null;
     }
     catch (e) {
-        //console.log(e.message);
         return null;
-
     }
-
 }
 
 

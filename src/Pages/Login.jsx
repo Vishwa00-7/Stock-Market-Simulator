@@ -49,14 +49,11 @@ function Login() {
             //console.log(AccountInfo.current);
         }*/
         async function afun() {
-            let id = null;
-            id = await validateToken(" ");
-            console.log(id);
-            if (id != null) {
+            const storedAccountId = sessionStorage.getItem("AccountID") || "";
+            const id = await validateToken(storedAccountId);
+            if (id) {
                 AccountID.current = id;
-                if (sessionStorage !== undefined)
-                    sessionStorage.setItem("AccountID", id);
-
+                sessionStorage.setItem("AccountID", id);
                 sessionStorage.setItem("Navpos", "portfolio");
                 navigate("/stockApp", { replace: true });
             }
