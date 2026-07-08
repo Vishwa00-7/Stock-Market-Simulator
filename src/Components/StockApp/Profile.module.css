@@ -58,7 +58,7 @@
     fill : #ef4444;
     box-sizing: border-box;
     margin-left: 5%;
-    vertical-align :sub;
+    vertical-align :middle;
 }
 
 .dropdown:hover{

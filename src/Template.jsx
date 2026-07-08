@@ -25,7 +25,7 @@ function _______(props){
             if (Storage !== undefined) {
                 accountData.current = localStorage.getItem(AccountID.current);
                 accountData.current = JSON.parse(accountData.current);
-                console.log(accountData.current);
+                // console.log(accountData.current);
                 }
         }, []);
 

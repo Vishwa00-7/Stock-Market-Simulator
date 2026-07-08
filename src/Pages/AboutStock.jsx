@@ -113,14 +113,14 @@ export async function executeHistoricalPrices(symbol, viewby) {
         split = 1;     //1 week
         unit = "week";
     }
-    //console.log(fromDate , Date(fromDate));
+    // console.log(fromDate , Date(fromDate));
     fromDate = new Date(fromDate).toISOString().split('T')[0];
 
-    console.log(split, unit, fromDate, today);
+    // console.log(split, unit, fromDate, today);
 
     const res = await fetch(`https://api.polygon.io/v2/aggs/ticker/${symbol}/range/${split}/${unit}/${fromDate}/${today}?adjusted=true&sort=desc&limit=30&apiKey=C3uFeFOdisqIhuiByEWBtc2PTmwFjZHq`);
     const data = await res.json();
-    console.log(res);
+    // console.log(res);
     return (data.results || []).map(r => ({
         date: new Date(r.t).toISOString().split('T')[0], open: r.o, high: r.h, low: r.l, close: r.c
     }));

@@ -26,9 +26,9 @@ export default function StockLineChart(props) {
             if (list == undefined || list == null)
                 list = [];
 
-            //console.log(list);
+            // console.log(list);
 
-            //console.log("hp from api", chartData, hd);
+            // console.log("hp from api", chartData, hd);
             if (hd.length > 0)
                 list.push([props.symbol, chartRange, hd]);
             sessionStorage.setItem("StockInfo", JSON.stringify(list));
@@ -37,7 +37,7 @@ export default function StockLineChart(props) {
         let flag = true
         let chartList = sessionStorage.getItem("StockInfo");
         chartList = JSON.parse(chartList);
-        //console.log(chartList)
+        // console.log(chartList)
         if (chartList !== undefined && chartList !== null) {
             for (let i = 0; i < chartList.length; i++) {
                 temp = chartList[i];
@@ -50,7 +50,7 @@ export default function StockLineChart(props) {
         if (flag == true) {
             getDetails();
         }
-        //console.log(chartData);
+        // console.log(chartData);
     }, [props.symbol, chartRange]);
 
     function changeSplit(value) {

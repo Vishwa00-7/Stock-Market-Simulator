@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useState, useContext, useRef, useEffect } from "react";
 import { Global_Variables } from "../../App.jsx";
+import { getUserInfo, updateUserInfo, clearRefreshToken } from "../../FetchBackend.jsx";
 import styles from "./Profile.module.css";
 import { useTheme } from '../../ThemeContext.jsx';
 import Portfolio from "./Portfolio.jsx";
@@ -14,8 +15,8 @@ function Profile(props) {
     const accountData = useRef(undefined);                      //Account Data of user
     const [userName, setUser] = useState("");
     const [currentBalance, setBalance] = useState(20000);
-    const [portfolioValue , setPortfolioValue] = useState(0);
-    const { theme, setTheme} = useTheme();
+    const [portfolioValue, setPortfolioValue] = useState(0);
+    const { theme, setTheme } = useTheme();
 
     const navigate = useNavigate();
 
@@ -25,24 +26,32 @@ function Profile(props) {
             if (sessionStorage !== undefined)
                 AccountID.current = sessionStorage.getItem("AccountID");
         }
+        /*
         if (Storage !== undefined) {
             accountData.current = localStorage.getItem(AccountID.current);
             accountData.current = JSON.parse(accountData.current);
-        }
-        setUser(accountData.current.name);
-        setBalance(accountData.current.amount)
-        let sum =0;
-        for (let i=0; i< accountData.current.portfolio.length ; i++){
-            sum += (accountData.current.portfolio[i][3] - 0);
+        }*/
+        async function afun() {
+
+
+            let tempData = await getUserInfo(AccountID.current)
+            accountData.current = tempData;
+            setUser(accountData.current.name);
+            setBalance(accountData.current.amount)
+            let sum = 0;
+            for (let i = 0; i < accountData.current.portfolio.length; i++) {
+                sum += (accountData.current.portfolio[i][3] - 0);
+                //console.log(sum);
+            }
             //console.log(sum);
+            setPortfolioValue(sum);
         }
-        //console.log(sum);
-        setPortfolioValue(sum);
+        afun();
     }, []);
 
     function setColor() {
-        
-        if (theme == "light" )
+
+        if (theme == "light")
             return "white"
         if ((currentBalance - 20000 + portfolioValue) >= 0)
             return "green";
@@ -53,13 +62,23 @@ function Profile(props) {
     const handleChange = (e) => {
         setTheme(e.target.value);
     }
-    
-    function logOut(){
-        sessionStorage.setItem("AccountID" , "");
-        sessionStorage.setItem("Navpos" , "portfolio");
-        sessionStorage.setItem("StockInfo" , JSON.stringify([]));
-        AccountID.current = null;
-        navigate("/")
+
+    async function logOut() {
+        try {
+            // console.log("btn click")
+            sessionStorage.setItem("AccountID", "");
+            sessionStorage.setItem("Navpos", "portfolio");
+            sessionStorage.setItem("StockInfo", JSON.stringify([]));
+            AccountID.current = null;
+            const clear = await clearRefreshToken();
+            if (clear == false)
+                throw new Error("Error Occured");
+            navigate("/", { replace: true });
+        }
+        catch (e) {
+            //do nothing
+            // console.log(e.message);
+        }
 
     }
 
@@ -89,8 +108,8 @@ function Profile(props) {
                     </select>
                 </div>
                 <div className={styles.option} onClick={logOut}>
-                    <svg className={styles.logoutsvg} xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" fill="#ef4444"><path d="M189.06-113.3q-31 0-53.38-22.38-22.38-22.38-22.38-53.38v-581.88q0-31.06 22.38-53.49 22.38-22.43 53.38-22.43h291.87v75.92H189.06v581.88h291.87v75.76H189.06ZM654.7-287.1l-53.45-54.14 100.72-100.88H358.41v-75.76h342.23L599.91-618.76l53.46-54.14 193.49 193.57L654.7-287.1Z"/></svg>
-                   <h2 className={styles.logout}> Log Out </h2>
+                    <svg className={styles.logoutsvg} xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" fill="#ef4444"><path d="M189.06-113.3q-31 0-53.38-22.38-22.38-22.38-22.38-53.38v-581.88q0-31.06 22.38-53.49 22.38-22.43 53.38-22.43h291.87v75.92H189.06v581.88h291.87v75.76H189.06ZM654.7-287.1l-53.45-54.14 100.72-100.88H358.41v-75.76h342.23L599.91-618.76l53.46-54.14 193.49 193.57L654.7-287.1Z" /></svg>
+                    <h2 className={styles.logout}> Log Out </h2>
                 </div>
 
             </div>

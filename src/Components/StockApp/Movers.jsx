@@ -49,7 +49,7 @@ function Movers(props) {
             try {
                 let temp = await executeMovers();
                 movers = [];
-                console.log(temp); //--------------
+                //console.log(temp); //--------------
 
                 for (let i = 0; i < 10; i++) {
                     let symbol = temp.top_gainers[i].ticker;
